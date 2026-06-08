@@ -80,8 +80,8 @@ export default function Sidebar({
         lg:translate-x-0
       `}
       >
-        <div className="pt-8 px-5">
-          <nav className="space-y-2">
+        <div className="pt-8 px-5 font-bold">
+          <nav className="space-y-2 font-bold">
             {menuItems.map((item) => {
               const Icon = item.icon;
 
@@ -96,12 +96,13 @@ export default function Sidebar({
                     px-4
                     py-4
                     rounded-xl
+                    from-bold
                     transition-all
 
                     ${
                       item.active
-                        ? "bg-green-600 text-white"
-                        : "hover:bg-green-50 text-gray-700"
+                        ? "bg-[#1AA428] text-white font-semibold"
+                        : "hover:bg-green-50 text-gray-700 font-bold"
                     }
                   `}
                 >
@@ -124,7 +125,7 @@ export default function Sidebar({
               <ChevronUp size={18} />
             </div>
 
-            <div className="space-y-4 text-gray-700">
+            <div className="space-y-4 text-black font-semibold">
               <div>
                 <div className="flex justify-between">
                   <span>Food</span>
