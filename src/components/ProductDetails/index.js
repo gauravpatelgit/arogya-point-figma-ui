@@ -157,7 +157,10 @@ function Index() {
                   className="mx-auto h-[260px] w-auto rounded-[24px] object-contain"
                 />
               </div>
-              <div className="rounded-[10px] border-2 border-dashed border-black bg-[#F8FAF2] p-6 text-center">
+              <div >
+
+                <span className="text-lg font-bold text-gray-900 m-4">Product Gallery</span>
+              <div className="rounded-[10px] border-2 border-dashed border-black p-6 text-center">
                 <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center text-green-600">
                   <Image size={72} />
                 </div>
@@ -168,6 +171,7 @@ function Index() {
                   Drop your images here, or browse
                 </p>
                 <p className="text-xs text-gray-500">Jpeg, png are allowed</p>
+              </div>
               </div>
 
               <div className="space-y-3">
