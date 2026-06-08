@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import products from "../constant-data/products";
 import frame from "../constant-data/image/Frame footer.svg";
 import { Link } from "react-router-dom";
+import { CalendarDays } from "lucide-react";
 function Index() {
   const [openMenuId, setOpenMenuId] = useState(null);
 
@@ -13,14 +14,20 @@ function Index() {
     <div className="bg-[#E7E7E3] rounded-sm overflow-hidden">
       <div className="flex  md:flex-row items-start md:items-center justify-between gap-3 px-6 pt-6">
         <div className="pb-2">
-          <Link to="/AllProduct" className="text-2xl font-bold text-gray-900 hover:text-gray-700">
+          <Link
+            to="/AllProduct"
+            className="text-2xl font-bold text-gray-900 hover:text-gray-700"
+          >
             All product
           </Link>
           <h5 className="font-semibold">Home {">"} All Product</h5>
         </div>
-        <span className="text-[15px]  text-gray-900 pr-1 font-semibold">
-          Oct 11, 2023 - Nov 11, 2024
-        </span>
+        <div className="flex items-center gap-2 text-gray-900">
+          <CalendarDays />
+          <span className="text-sm font-semibold text-gray-900">
+            Oct 11, 2023 - Nov 11, 2024
+          </span>
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 px-4 sm:px-6 pb-8">
         {products.map((current) => {
@@ -113,9 +120,8 @@ function Index() {
           );
         })}
       </div>
-        <img className="w-[30%] ml-6 mb-8" src={frame} alt="Footer Frame" />
-      <div>
-      </div>
+      <img className="w-[30%] ml-6 mb-8" src={frame} alt="Footer Frame" />
+      <div></div>
     </div>
   );
 }
