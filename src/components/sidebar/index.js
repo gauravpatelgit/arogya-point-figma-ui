@@ -10,6 +10,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const menuItems = [
   {
@@ -47,15 +48,10 @@ const menuItems = [
   },
 ];
 
-type SidebarProps = {
-  open: boolean;
-  closeSidebar: () => void;
-};
-
 export default function Sidebar({
   open,
   closeSidebar,
-}: SidebarProps) {
+}) {
   return (
     <>
       {/* Mobile Overlay */}
@@ -80,15 +76,11 @@ export default function Sidebar({
         lg:translate-x-0
       `}
       >
-        <div className="pt-8 px-5 font-bold">
-          <nav className="space-y-2 font-bold">
+        <div className="pt-8 px-5 ">
+          <nav className="space-y-2 ">
             {menuItems.map((item) => {
               const Icon = item.icon;
-
-              return (
-                <button
-                  key={item.title}
-                  className={`
+              const menuClasses = `
                     w-full
                     flex
                     items-center
@@ -96,18 +88,29 @@ export default function Sidebar({
                     px-4
                     py-4
                     rounded-xl
-                    from-bold
                     transition-all
-
                     ${
                       item.active
-                        ? "bg-[#1AA428] text-white font-semibold"
-                        : "hover:bg-green-50 text-gray-700 font-bold"
+                        ? "bg-[#1AA428] text-white"
+                        : "hover:bg-green-50 text-black"
                     }
-                  `}
-                >
+                  `;
+
+              if (item.title === "All Products") {
+                return (
+                  <Link key={item.title} to="/AllProductList" className={menuClasses}>
+                    <Icon size={18} />
+                    <span className="font-bold text-inherit">
+                      {item.title}
+                    </span>
+                  </Link>
+                );
+              }
+
+              return (
+                <button key={item.title} className={menuClasses}>
                   <Icon size={18} />
-                  <span className="font-medium">
+                  <span className="font-bold text-inherit">
                     {item.title}
                   </span>
                 </button>
